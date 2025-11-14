@@ -6,5 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12.1"
 dependencies = [
     "boto3==1.40.21",
+    "ipykernel>=7.1.0",
     "python-dotenv==1.1.1",
+    "rich>=14.2.0",
 ]
