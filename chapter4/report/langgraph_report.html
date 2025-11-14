@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LangGraphの概要と使い方</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #3498db;
+        }
+        code {
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 2px 5px;
+            font-family: 'Courier New', monospace;
+        }
+        pre {
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 15px;
+            overflow-x: auto;
+        }
+        .note {
+            background-color: #e7f5fe;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .highlight {
+            background-color: #fffde7;
+            padding: 2px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .box {
+            flex: 1;
+            min-width: 250px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>LangGraph：LLMを活用したエージェントワークフローの構築ツール</h1>
+
+    <div class="note">
+        <p>このレポートはLangGraphの基本概念、特徴、使い方について解説します。LangGraphを使うことで、複雑なエージェントベースのLLMアプリケーション開発が効率化できます。</p>
+    </div>
+
+    <h2>1. LangGraphとは</h2>
+    <p>LangGraphは、大規模言語モデル（LLM）を活用して複数のエージェントが連携するアプリケーションを構築するためのPythonライブラリです。特に以下のような特徴があります：</p>
+    
+    <ul>
+        <li>エージェントやマルチエージェントのワークフローをグラフ構造として表現・管理</li>
+        <li>状態遷移とワークフローの構築をシンプルに実現</li>
+        <li>LangChainを基盤としており、そのコンポーネントを活用できる</li>
+        <li>ループを含むフローの実装や、エージェントの行動の細かい制御が可能</li>
+        <li>人間の介入を含むワークフローの構築が可能</li>
+    </ul>
+
+    <h2>2. LangChainとの違い</h2>
+    <p>LangChainがシーケンシャルなチェーンの構築に特化しているのに対し、LangGraphはより複雑な処理フロー（特にサイクルや条件分岐を含むもの）の実装に適しています。LangGraphはLangChainを基盤としているため、LangChainの各種コンポーネントを活用しつつ、より高度なワークフローを構築できます。</p>
+
+    <h2>3. LangGraphの基本構成要素</h2>
+
+    <h3>3.1. Graph（グラフ）</h3>
+    <p>LangGraphの基本的な機能は、エージェントの作業の流れをグラフとして表現することです。グラフ構造には、以下の3つの主要なコンポーネントが使用されます：</p>
+
+    <div class="container">
+        <div class="box">
+            <h4>StateGraph</h4>
+            <p>グラフ全体の状態を管理し、ノードとエッジを含むコンストラクション。処理の流れや状態の遷移を管理します。</p>
+        </div>
+        <div class="box">
+            <h4>Node（ノード）</h4>
+            <p>各ステップや処理を実行するための要素。具体的なアクションや計算を行う関数として定義されます。</p>
+        </div>
+        <div class="box">
+            <h4>Edge（エッジ）</h4>
+            <p>ノード間の接続を定義し、処理の流れや条件付きの遷移を管理します。通常のエッジと条件付きエッジがあります。</p>
+        </div>
+    </div>
+
+    <h3>3.2. State（状態）</h3>
+    <p>LangGraphでは、状態（State）を流れるデータとして扱います。状態は以下の要素から構成されます：</p>
+    <ul>
+        <li><strong>スキーマ</strong>：データの構造を定義します</li>
+        <li><strong>リデューサ</strong>：データの更新方法を定義します</li>
+        <li><strong>MessageState</strong>：特殊な状態の一種で、メッセージの管理に使われます</li>
+    </ul>
+
+    <h2>4. LangGraphの使用方法</h2>
+    <p>LangGraphの基本的な使用手順は以下の通りです：</p>
+
+    <ol>
+        <li><strong>ステートとノードの定義</strong>：各ノードが受け取るステートを定義し、その処理内容を関数として実装します</li>
+        <li><strong>エッジの設定</strong>：ノード間の接続を設定し、処理の流れを明確にするために順序を決定します</li>
+        <li><strong>グラフの実行</strong>：定義したグラフをコンパイルし、状態を引数として実行します</li>
+    </ol>
+
+    <h3>基本的な実装例</h3>
+    <pre><code>
+# 必要なライブラリをインポート
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_openai import ChatOpenAI
+from langgraph.graph import StateGraph
+
+# モデルの定義
+model = ChatOpenAI(temperature=0)
+
+# ノードの定義（関数として）
+def summarize(state):
+    text = state["text"]
+    prompt = ChatPromptTemplate.from_template("Summarize the following text:\n{text}")
+    chain = prompt | model
+    summary = chain.invoke({"text": text})
+    return {"summary": summary.content}
+
+def generate_title(state):
+    summary = state["summary"]
+    prompt = ChatPromptTemplate.from_template("Generate a title for this summary:\n{summary}")
+    chain = prompt | model
+    title = chain.invoke({"summary": summary})
+    return {"title": title.content}
+
+# グラフの構築
+graph = StateGraph()
+graph.add_node("summarize", summarize)
+graph.add_node("generate_title", generate_title)
+
+# エッジの設定
+graph.add_edge("summarize", "generate_title")
+graph.set_entry_point("summarize")
+
+# グラフのコンパイル
+workflow = graph.compile()
+
+# グラフの実行
+result = workflow.invoke({"text": "LangChain helps developers build AI apps faster."})
+print(result)
+    </code></pre>
+
+    <h2>5. LangGraphの活用例</h2>
+
+    <h3>5.1. RAG（検索拡張生成）エージェント</h3>
+    <p>ユーザーの質問に応じて、ベクトルストアから関連情報を検索するかどうかを判断し、適切に応答するエージェントを構築できます。このようなエージェントでは、以下のようなステップを含むグラフを作成できます：</p>
+    <ul>
+        <li>クエリの生成</li>
+        <li>文書の検索</li>
+        <li>文書の評価</li>
+        <li>質問の書き換え</li>
+        <li>回答の生成</li>
+    </ul>
+
+    <h3>5.2. マルチエージェントシステム</h3>
+    <p>複数の専門エージェントが協力して問題解決を行うシステムを構築できます。例えば：</p>
+    <ul>
+        <li>Web検索エージェント</li>
+        <li>内部データベース検索エージェント</li>
+        <li>計算エージェント</li>
+        <li>コーディングエージェント</li>
+        <li>調整役（オーケストレーター）エージェント</li>
+    </ul>
+
+    <p>各エージェントの役割や相互作用をグラフとして定義することで、複雑なタスクを効率的に処理できます。</p>
+
+    <h3>5.3. 条件分岐を含むワークフロー</h3>
+    <p>条件付きエッジを使用して、入力内容や処理結果に応じて異なる処理パスを選択するワークフローを構築できます。例えば、ユーザーの質問の種類によって、Web検索を行うか内部データベースを検索するかを動的に決定する仕組みなどが実装可能です。</p>
+
+    <h2>6. LangGraphのインストール方法</h2>
+    <p>LangGraphは以下のコマンドでインストールできます：</p>
+    <pre><code>pip install langgraph</code></pre>
+    <p>LangChainと一緒に使う場合は、LangChainもインストールしておくと良いでしょう：</p>
+    <pre><code>pip install langchain</code></pre>
+
+    <h2>7. まとめ</h2>
+    <p>LangGraphは、LLMを活用したエージェントベースのアプリケーション開発を効率化するための強力なツールです。グラフ構造を用いた状態管理と処理フローの定義により、複雑なAIワークフローを視覚的に設計・実装することができます。特に以下のような場面で強みを発揮します：</p>
+
+    <ul>
+        <li>複数のエージェントが協調して動作する必要があるシステム</li>
+        <li>条件分岐やループを含む複雑なワークフロー</li>
+        <li>状態を保持しながら段階的に処理を進める必要があるアプリケーション</li>
+        <li>人間とAIが協働するインタラクティブなシステム</li>
+    </ul>
+
+    <p>LangChainの機能を基盤としつつ、より複雑なワークフローを実現できるLangGraphは、高度なLLMアプリケーション開発において重要なライブラリとなっています。</p>
+
+    <div class="note">
+        <p><strong>注意</strong>：LangGraphは比較的新しいライブラリであり、APIや機能は今後変更される可能性があります。最新の情報は<a href="https://github.com/langchain-ai/langgraph" target="_blank">公式ドキュメント</a>を参照してください。</p>
+    </div>
+
+    <hr>
+    <footer>
+        <p>このレポートは検索結果に基づいて作成されています。最終更新日：2024年</p>
+    </footer>
+</body>
+</html>

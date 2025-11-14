@@ -3,6 +3,9 @@ from strands import Agent, tool
 from strands.tools.mcp import MCPClient
 from mcp import stdio_client, StdioServerParameters
 from .agent_executor import invoke
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # エージェントの状態を管理
 class ApiMasterState:

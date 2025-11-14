@@ -1,3 +1,4 @@
+from langchain_core.messages.ai import AIMessage
 from botocore.config import Config
 from langchain.chat_models import init_chat_model
 from langchain_community.agent_toolkits import FileManagementToolkit

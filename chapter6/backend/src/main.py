@@ -4,6 +4,9 @@ from bedrock_agentcore.runtime import BedrockAgentCoreApp
 from .aws_master import aws_master, setup_aws_master
 from .api_master import api_master, setup_api_master
 from .stream_handler import merge_streams
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def _create_orchestrator():
     """監督者エージェントを作成"""

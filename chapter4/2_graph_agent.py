@@ -67,7 +67,7 @@ builder.add_edge("tools", "agent")
 graph = builder.compile()
 
 async def main():
-    question = "LangGraphの基本をやさしく解説して"
+    question = "LangGraphの基本と応用と活用事例をやさしく解説して"
     response = await graph.ainvoke(
         {"messages":
             [HumanMessage(question)]
