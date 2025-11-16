@@ -1,3 +1,5 @@
+# streamlitはめんどくさいのでターミナルで実行できるようにソースを変更した
+
 from langchain_core.messages.ai import AIMessage
 from botocore.config import Config
 from langchain.chat_models import init_chat_model
@@ -14,6 +16,7 @@ from langgraph.types import interrupt
 from langgraph.checkpoint.memory import MemorySaver
 from langgraph.func import entrypoint, task
 from langgraph.graph import add_messages
+from rich import print
 
 # .envから環境変数ファイルを読みだし
 from dotenv import load_dotenv
@@ -40,7 +43,8 @@ cfg = Config(
     read_timeout=300,
 )
 llm_with_tools = init_chat_model(
-    model="us.anthropic.claude-3-7-sonnet-20250219-v1:0",
+    # model="us.anthropic.claude-3-7-sonnet-20250219-v1:0",
+    model="us.anthropic.claude-3-5-haiku-20241022-v1:0",
     model_provider="bedrock_converse",
     config=cfg,
 ).bind_tools(tools)
@@ -112,7 +116,11 @@ checkpointer = MemorySaver()
 def agent(messages):
     # LLMを呼び出し
     llm_response = invoke_llm(messages).result()
-    
+    print("-------------x_agent_core.py 最初の呼び出し-----------------")
+    print(llm_response)
+    print("--------------------------------------------------------")
+
+
     # ツール呼び出しがある限り繰り返す
     while True:
         if not llm_response.tool_calls:
@@ -121,6 +129,9 @@ def agent(messages):
         approve_tools = []
         tool_results = []
         
+        print("---------------llm_response.tool_calls---------------")
+        print(llm_response.tool_calls)
+        print("--------------------------------------------------------")
         # 各ツール呼び出しに対してユーザーの承認を求める
         for tool_call in llm_response.tool_calls:
             feedback = ask_human(tool_call)
@@ -128,6 +139,13 @@ def agent(messages):
                 tool_results.append(feedback)
             else:
                 approve_tools.append(feedback)
+        print("---------------tool_results---------------")
+        print(tool_results)
+        print("--------------------------------------------------------")
+
+        print("---------------approve_tools---------------")
+        print(approve_tools)
+        print("--------------------------------------------------------")
 
         # 承認されたツールを実行
         tool_futures = []
@@ -135,11 +153,19 @@ def agent(messages):
             future = use_tool(tool_call)   # 非同期実行を開始
             tool_futures.append(future)
 
+        print("---------------tool_futures---------------")
+        print(tool_futures)
+        print("--------------------------------------------------------")
+
         # Future が完了するのを待って結果だけを集める
         tool_use_results = []
         for future in tool_futures:
             result = future.result()       # 完了まで待ち、結果を取得
             tool_use_results.append(result)
+
+        print("---------------tool_use_results---------------")
+        print(tool_use_results)
+        print("--------------------------------------------------------")
 
         # メッセージリストに追加
         messages = add_messages(
@@ -147,8 +173,69 @@ def agent(messages):
             [llm_response, *tool_use_results, *tool_results]
         )
 
+        print("---------------messages---------------")
+        print(messages)
+        print("--------------------------------------------------------")
+
         # モデルを再度呼び出し
         llm_response = invoke_llm(messages).result()
     
     # 最終結果を返す
     return llm_response
+
+
+if __name__ == "__main__":
+    import asyncio
+    import uuid
+    from langchain_core.messages import HumanMessage
+    from langgraph.types import Command
+
+    async def test_agent():
+        content = input("メッセージを入力してください: ")
+        messages = [HumanMessage(content=content)]
+        thread_id = str(uuid.uuid4())
+        config = {"configurable": {"thread_id": thread_id}}
+        print("エージェント実行中...")
+        result = agent.invoke(messages, config=config)
+
+        ## interrputが走るとresutlに中断されたという情報が一回出力される
+        ## resultに入る内容↓
+        # {
+        #     '__interrupt__': [
+        #         Interrupt(
+        #             value={
+        #                 'name': 'tavily_search',
+        #                 'args': '* ツール名\n  * tavily_search\n* 引数\n  * query\n    * GPT-5.1 recent announcement OpenAI\n  * time_range\n    * 
+        # month\n  * search_depth\n    * advanced\n'
+        #             },
+        #             id='0b6b13bd32a0a7c9c9231a994207bf1a'
+        #         )
+        #     ]
+        # }
+
+        print("---------------結果---------------")
+        print(result)
+        print("------------------------------------")
+
+        while True:
+            # 最終的にはAIMessageが返ってくるのでAIMessageでない場合はHuman-in-the-loopでツール実行をするかしないか判断する
+            if not isinstance(result, AIMessage):
+                # 上記のように'__interrupt__'があった場合はユーザーにツール実行をするかしないか判断する
+                if "__interrupt__" in result.keys():
+                
+                    feedback_result = input("ツールを実行しますか？ (APPROVE/DENY): ")
+                    
+                    # Command(resume=feedback_result)とすると止まっていたところから再開できる。
+                    # 今回の場合はask_humanのfeedback = interrupt(tool_data)のところから再開
+                    result = agent.invoke(Command(resume=feedback_result), config=config)
+
+                    print("---------------結果---------------")
+                    print(result)
+                    print("------------------------------------")
+                    return result
+            else:
+                return result
+
+        return result   # 最終結果を返す
+
+    asyncio.run(test_agent())
