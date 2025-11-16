@@ -100,7 +100,7 @@ def ask_human(tool_call: ToolCall):
 
     feedback = interrupt(tool_data)
 
-    if feedback == "APPROVE": # ユーザーがツール利用を承認したとき
+    if feedback == "y": # ユーザーがツール利用を承認したとき
         return tool_call
     
     # ユーザーがツール利用を承認しなかったとき
@@ -223,16 +223,17 @@ if __name__ == "__main__":
                 # 上記のように'__interrupt__'があった場合はユーザーにツール実行をするかしないか判断する
                 if "__interrupt__" in result.keys():
                 
-                    feedback_result = input("ツールを実行しますか？ (APPROVE/DENY): ")
+                    feedback_result = input("ツールを実行しますか？ (Y/n): ")
+                    feedback_result = feedback_result.lower()
                     
                     # Command(resume=feedback_result)とすると止まっていたところから再開できる。
                     # 今回の場合はask_humanのfeedback = interrupt(tool_data)のところから再開
+                    # feedbackにfeedback_resultの値が入る
                     result = agent.invoke(Command(resume=feedback_result), config=config)
 
                     print("---------------結果---------------")
                     print(result)
                     print("------------------------------------")
-                    return result
             else:
                 return result
 
