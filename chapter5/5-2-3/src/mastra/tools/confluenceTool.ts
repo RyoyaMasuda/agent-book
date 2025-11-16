@@ -1,4 +1,7 @@
 // 必要なモジュールをインポート
+import { process } from "node:process";
+
+// 必要なモジュールをインポート
 import { createTool } from "@mastra/core/tools";
 import { z } from "zod";
 
