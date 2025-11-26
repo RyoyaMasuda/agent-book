@@ -1,0 +1,422 @@
+=== Event 1 ===
+{'init_event_loop': True}
+
+
+=== Event 2 ===
+{'start': True}
+
+
+=== Event 3 ===
+{'start_event_loop': True}
+
+
+=== Event 4 ===
+{'event': {'messageStart': {'role': 'assistant'}}}
+
+
+=== Event 5 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 0, 'delta': {'text': 'AWSのS'}}}}
+
+
+=== Event 6 ===
+{'agent': <strands.agent.agent.Agent object at 0x7e3ac8e46db0>,
+ 'data': 'AWSのS',
+ 'delta': {'text': 'AWSのS'},
+ 'event_loop_cycle_id': UUID('67da6de7-cf34-42ce-8184-58131a3516a0'),
+ 'event_loop_cycle_span': NonRecordingSpan(SpanContext(trace_id=0x00000000000000000000000000000000, span_id=0x0000000000000000, trace_flags=0x00, trace_state=[], is_remote=False)),
+ 'event_loop_cycle_trace': <strands.telemetry.metrics.Trace object at 0x7e3ab071d7f0>,
+ 'request_state': {}}
+
+
+=== Event 7 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 0,
+                                 'delta': {'text': '3(Simple Storage Service)について説'}}}}
+
+
+=== Event 8 ===
+{'agent': <strands.agent.agent.Agent object at 0x7e3ac8e46db0>,
+ 'data': '3(Simple Storage Service)について説',
+ 'delta': {'text': '3(Simple Storage Service)について説'},
+ 'event_loop_cycle_id': UUID('67da6de7-cf34-42ce-8184-58131a3516a0'),
+ 'event_loop_cycle_span': NonRecordingSpan(SpanContext(trace_id=0x00000000000000000000000000000000, span_id=0x0000000000000000, trace_flags=0x00, trace_state=[], is_remote=False)),
+ 'event_loop_cycle_trace': <strands.telemetry.metrics.Trace object at 0x7e3ab071d7f0>,
+ 'request_state': {}}
+
+
+=== Event 9 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 0, 'delta': {'text': '明いたします。詳細情'}}}}
+
+
+=== Event 10 ===
+{'agent': <strands.agent.agent.Agent object at 0x7e3ac8e46db0>,
+ 'data': '明いたします。詳細情',
+ 'delta': {'text': '明いたします。詳細情'},
+ 'event_loop_cycle_id': UUID('67da6de7-cf34-42ce-8184-58131a3516a0'),
+ 'event_loop_cycle_span': NonRecordingSpan(SpanContext(trace_id=0x00000000000000000000000000000000, span_id=0x0000000000000000, trace_flags=0x00, trace_state=[], is_remote=False)),
+ 'event_loop_cycle_trace': <strands.telemetry.metrics.Trace object at 0x7e3ab071d7f0>,
+ 'request_state': {}}
+
+
+=== Event 11 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 0, 'delta': {'text': '報を得るためにAWSマ'}}}}
+
+
+=== Event 12 ===
+{'agent': <strands.agent.agent.Agent object at 0x7e3ac8e46db0>,
+ 'data': '報を得るためにAWSマ',
+ 'delta': {'text': '報を得るためにAWSマ'},
+ 'event_loop_cycle_id': UUID('67da6de7-cf34-42ce-8184-58131a3516a0'),
+ 'event_loop_cycle_span': NonRecordingSpan(SpanContext(trace_id=0x00000000000000000000000000000000, span_id=0x0000000000000000, trace_flags=0x00, trace_state=[], is_remote=False)),
+ 'event_loop_cycle_trace': <strands.telemetry.metrics.Trace object at 0x7e3ab071d7f0>,
+ 'request_state': {}}
+
+
+=== Event 13 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 0, 'delta': {'text': 'スターに質問してみましょう'}}}}
+
+
+=== Event 14 ===
+{'agent': <strands.agent.agent.Agent object at 0x7e3ac8e46db0>,
+ 'data': 'スターに質問してみましょう',
+ 'delta': {'text': 'スターに質問してみましょう'},
+ 'event_loop_cycle_id': UUID('67da6de7-cf34-42ce-8184-58131a3516a0'),
+ 'event_loop_cycle_span': NonRecordingSpan(SpanContext(trace_id=0x00000000000000000000000000000000, span_id=0x0000000000000000, trace_flags=0x00, trace_state=[], is_remote=False)),
+ 'event_loop_cycle_trace': <strands.telemetry.metrics.Trace object at 0x7e3ab071d7f0>,
+ 'request_state': {}}
+
+
+=== Event 15 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 0, 'delta': {'text': '。'}}}}
+
+
+=== Event 16 ===
+{'agent': <strands.agent.agent.Agent object at 0x7e3ac8e46db0>,
+ 'data': '。',
+ 'delta': {'text': '。'},
+ 'event_loop_cycle_id': UUID('67da6de7-cf34-42ce-8184-58131a3516a0'),
+ 'event_loop_cycle_span': NonRecordingSpan(SpanContext(trace_id=0x00000000000000000000000000000000, span_id=0x0000000000000000, trace_flags=0x00, trace_state=[], is_remote=False)),
+ 'event_loop_cycle_trace': <strands.telemetry.metrics.Trace object at 0x7e3ab071d7f0>,
+ 'request_state': {}}
+
+
+=== Event 17 ===
+{'event': {'contentBlockStop': {'contentBlockIndex': 0}}}
+
+
+=== Event 18 ===
+{'event': {'contentBlockStart': {'contentBlockIndex': 1,
+                                 'start': {'toolUse': {'name': 'aws_master',
+                                                       'toolUseId': 'tooluse_jKvjOe8CQhWvbV60TBg3vA',
+                                                       'type': 'tool_use'}}}}}
+
+
+=== Event 19 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 1, 'delta': {'toolUse': {'input': ''}}}}}
+
+
+=== Event 20 ===
+{'agent': <strands.agent.agent.Agent object at 0x7e3ac8e46db0>,
+ 'current_tool_use': {'input': '',
+                      'name': 'aws_master',
+                      'toolUseId': 'tooluse_jKvjOe8CQhWvbV60TBg3vA'},
+ 'delta': {'toolUse': {'input': ''}},
+ 'event_loop_cycle_id': UUID('67da6de7-cf34-42ce-8184-58131a3516a0'),
+ 'event_loop_cycle_span': NonRecordingSpan(SpanContext(trace_id=0x00000000000000000000000000000000, span_id=0x0000000000000000, trace_flags=0x00, trace_state=[], is_remote=False)),
+ 'event_loop_cycle_trace': <strands.telemetry.metrics.Trace object at 0x7e3ab071d7f0>,
+ 'request_state': {}}
+
+
+=== Event 21 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 1,
+                                 'delta': {'toolUse': {'input': '{"query"'}}}}}
+
+
+=== Event 22 ===
+{'agent': <strands.agent.agent.Agent object at 0x7e3ac8e46db0>,
+ 'current_tool_use': {'input': '{"query"',
+                      'name': 'aws_master',
+                      'toolUseId': 'tooluse_jKvjOe8CQhWvbV60TBg3vA'},
+ 'delta': {'toolUse': {'input': '{"query"'}},
+ 'event_loop_cycle_id': UUID('67da6de7-cf34-42ce-8184-58131a3516a0'),
+ 'event_loop_cycle_span': NonRecordingSpan(SpanContext(trace_id=0x00000000000000000000000000000000, span_id=0x0000000000000000, trace_flags=0x00, trace_state=[], is_remote=False)),
+ 'event_loop_cycle_trace': <strands.telemetry.metrics.Trace object at 0x7e3ab071d7f0>,
+ 'request_state': {}}
+
+
+=== Event 23 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 1,
+                                 'delta': {'toolUse': {'input': ': "Amazon S3'}}}}}
+
+
+=== Event 24 ===
+{'agent': <strands.agent.agent.Agent object at 0x7e3ac8e46db0>,
+ 'current_tool_use': {'input': '{"query": "Amazon S3',
+                      'name': 'aws_master',
+                      'toolUseId': 'tooluse_jKvjOe8CQhWvbV60TBg3vA'},
+ 'delta': {'toolUse': {'input': ': "Amazon S3'}},
+ 'event_loop_cycle_id': UUID('67da6de7-cf34-42ce-8184-58131a3516a0'),
+ 'event_loop_cycle_span': NonRecordingSpan(SpanContext(trace_id=0x00000000000000000000000000000000, span_id=0x0000000000000000, trace_flags=0x00, trace_state=[], is_remote=False)),
+ 'event_loop_cycle_trace': <strands.telemetry.metrics.Trace object at 0x7e3ab071d7f0>,
+ 'request_state': {}}
+
+
+=== Event 25 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 1,
+                                 'delta': {'toolUse': {'input': '(Simple Sto'}}}}}
+
+
+=== Event 26 ===
+{'agent': <strands.agent.agent.Agent object at 0x7e3ac8e46db0>,
+ 'current_tool_use': {'input': '{"query": "Amazon S3(Simple Sto',
+                      'name': 'aws_master',
+                      'toolUseId': 'tooluse_jKvjOe8CQhWvbV60TBg3vA'},
+ 'delta': {'toolUse': {'input': '(Simple Sto'}},
+ 'event_loop_cycle_id': UUID('67da6de7-cf34-42ce-8184-58131a3516a0'),
+ 'event_loop_cycle_span': NonRecordingSpan(SpanContext(trace_id=0x00000000000000000000000000000000, span_id=0x0000000000000000, trace_flags=0x00, trace_state=[], is_remote=False)),
+ 'event_loop_cycle_trace': <strands.telemetry.metrics.Trace object at 0x7e3ab071d7f0>,
+ 'request_state': {}}
+
+
+=== Event 27 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 1, 'delta': {'toolUse': {'input': 'rage '}}}}}
+
+
+=== Event 28 ===
+{'agent': <strands.agent.agent.Agent object at 0x7e3ac8e46db0>,
+ 'current_tool_use': {'input': '{"query": "Amazon S3(Simple Storage ',
+                      'name': 'aws_master',
+                      'toolUseId': 'tooluse_jKvjOe8CQhWvbV60TBg3vA'},
+ 'delta': {'toolUse': {'input': 'rage '}},
+ 'event_loop_cycle_id': UUID('67da6de7-cf34-42ce-8184-58131a3516a0'),
+ 'event_loop_cycle_span': NonRecordingSpan(SpanContext(trace_id=0x00000000000000000000000000000000, span_id=0x0000000000000000, trace_flags=0x00, trace_state=[], is_remote=False)),
+ 'event_loop_cycle_trace': <strands.telemetry.metrics.Trace object at 0x7e3ab071d7f0>,
+ 'request_state': {}}
+
+
+=== Event 29 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 1, 'delta': {'toolUse': {'input': 'Ser'}}}}}
+
+
+=== Event 30 ===
+{'agent': <strands.agent.agent.Agent object at 0x7e3ac8e46db0>,
+ 'current_tool_use': {'input': '{"query": "Amazon S3(Simple Storage Ser',
+                      'name': 'aws_master',
+                      'toolUseId': 'tooluse_jKvjOe8CQhWvbV60TBg3vA'},
+ 'delta': {'toolUse': {'input': 'Ser'}},
+ 'event_loop_cycle_id': UUID('67da6de7-cf34-42ce-8184-58131a3516a0'),
+ 'event_loop_cycle_span': NonRecordingSpan(SpanContext(trace_id=0x00000000000000000000000000000000, span_id=0x0000000000000000, trace_flags=0x00, trace_state=[], is_remote=False)),
+ 'event_loop_cycle_trace': <strands.telemetry.metrics.Trace object at 0x7e3ab071d7f0>,
+ 'request_state': {}}
+
+
+=== Event 31 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 1,
+                                 'delta': {'toolUse': {'input': 'vice)の基本的'}}}}}
+
+
+=== Event 32 ===
+{'agent': <strands.agent.agent.Agent object at 0x7e3ac8e46db0>,
+ 'current_tool_use': {'input': '{"query": "Amazon S3(Simple Storage Service)の基本的',
+                      'name': 'aws_master',
+                      'toolUseId': 'tooluse_jKvjOe8CQhWvbV60TBg3vA'},
+ 'delta': {'toolUse': {'input': 'vice)の基本的'}},
+ 'event_loop_cycle_id': UUID('67da6de7-cf34-42ce-8184-58131a3516a0'),
+ 'event_loop_cycle_span': NonRecordingSpan(SpanContext(trace_id=0x00000000000000000000000000000000, span_id=0x0000000000000000, trace_flags=0x00, trace_state=[], is_remote=False)),
+ 'event_loop_cycle_trace': <strands.telemetry.metrics.Trace object at 0x7e3ab071d7f0>,
+ 'request_state': {}}
+
+
+=== Event 33 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 1, 'delta': {'toolUse': {'input': 'な説明、主'}}}}}
+
+
+=== Event 34 ===
+{'agent': <strands.agent.agent.Agent object at 0x7e3ac8e46db0>,
+ 'current_tool_use': {'input': '{"query": "Amazon S3(Simple Storage Service)の基本的な説明、主',
+                      'name': 'aws_master',
+                      'toolUseId': 'tooluse_jKvjOe8CQhWvbV60TBg3vA'},
+ 'delta': {'toolUse': {'input': 'な説明、主'}},
+ 'event_loop_cycle_id': UUID('67da6de7-cf34-42ce-8184-58131a3516a0'),
+ 'event_loop_cycle_span': NonRecordingSpan(SpanContext(trace_id=0x00000000000000000000000000000000, span_id=0x0000000000000000, trace_flags=0x00, trace_state=[], is_remote=False)),
+ 'event_loop_cycle_trace': <strands.telemetry.metrics.Trace object at 0x7e3ab071d7f0>,
+ 'request_state': {}}
+
+
+=== Event 35 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 1,
+                                 'delta': {'toolUse': {'input': 'な特徴、ユースケ'}}}}}
+
+
+=== Event 36 ===
+{'agent': <strands.agent.agent.Agent object at 0x7e3ac8e46db0>,
+ 'current_tool_use': {'input': '{"query": "Amazon S3(Simple Storage Service)の基本的な説明、主な特徴、ユースケ',
+                      'name': 'aws_master',
+                      'toolUseId': 'tooluse_jKvjOe8CQhWvbV60TBg3vA'},
+ 'delta': {'toolUse': {'input': 'な特徴、ユースケ'}},
+ 'event_loop_cycle_id': UUID('67da6de7-cf34-42ce-8184-58131a3516a0'),
+ 'event_loop_cycle_span': NonRecordingSpan(SpanContext(trace_id=0x00000000000000000000000000000000, span_id=0x0000000000000000, trace_flags=0x00, trace_state=[], is_remote=False)),
+ 'event_loop_cycle_trace': <strands.telemetry.metrics.Trace object at 0x7e3ab071d7f0>,
+ 'request_state': {}}
+
+
+=== Event 37 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 1, 'delta': {'toolUse': {'input': 'ース"}'}}}}}
+
+
+=== Event 38 ===
+{'agent': <strands.agent.agent.Agent object at 0x7e3ac8e46db0>,
+ 'current_tool_use': {'input': '{"query": "Amazon S3(Simple Storage Service)の基本的な説明、主な特徴、ユースケース"}',
+                      'name': 'aws_master',
+                      'toolUseId': 'tooluse_jKvjOe8CQhWvbV60TBg3vA'},
+ 'delta': {'toolUse': {'input': 'ース"}'}},
+ 'event_loop_cycle_id': UUID('67da6de7-cf34-42ce-8184-58131a3516a0'),
+ 'event_loop_cycle_span': NonRecordingSpan(SpanContext(trace_id=0x00000000000000000000000000000000, span_id=0x0000000000000000, trace_flags=0x00, trace_state=[], is_remote=False)),
+ 'event_loop_cycle_trace': <strands.telemetry.metrics.Trace object at 0x7e3ab071d7f0>,
+ 'request_state': {}}
+
+
+=== Event 39 ===
+{'event': {'contentBlockStop': {'contentBlockIndex': 1}}}
+
+
+=== Event 40 ===
+{'event': {'messageStop': {'stopReason': 'tool_use'}}}
+
+
+=== Event 41 ===
+{'event': {'metadata': {'metrics': {'latencyMs': 2838},
+                        'usage': {'inputTokens': 2759, 'outputTokens': 121, 'totalTokens': 2880}}}}
+
+
+=== Event 42 ===
+{'message': {'content': [{'text': 'AWSのS3(Simple Storage '
+                                  'Service)について説明いたします。詳細情報を得るためにAWSマスターに質問してみましょう。'},
+                         {'toolUse': {'input': {'query': 'Amazon S3(Simple Storage '
+                                                         'Service)の基本的な説明、主な特徴、ユースケース'},
+                                      'name': 'aws_master',
+                                      'toolUseId': 'tooluse_jKvjOe8CQhWvbV60TBg3vA'}}],
+             'role': 'assistant'}}
+
+
+=== Event 43 ===
+{'event': {'subAgentProgress': {'message': 'サブエージェント「AWS マスター」が呼び出されました', 'stage': 'start'}}}
+
+
+=== Event 44 ===
+{'event': {'messageStart': {'role': 'assistant'}}}
+
+
+=== Event 45 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 0, 'delta': {'text': 'Amazon S3('}}}}
+
+
+=== Event 46 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 0,
+                                 'delta': {'text': 'Simple Storage Service)について詳細な情'}}}}
+
+
+=== Event 47 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 0, 'delta': {'text': '報をお調べします。AWS のド'}}}}
+
+
+=== Event 48 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 0, 'delta': {'text': 'キュメントを検索して、基'}}}}
+
+
+=== Event 49 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 0, 'delta': {'text': '本的な説明、主な'}}}}
+
+
+=== Event 50 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 0, 'delta': {'text': '特徴、ユースケ'}}}}
+
+
+=== Event 51 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 0, 'delta': {'text': 'ースについて情報を収'}}}}
+
+
+=== Event 52 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 0, 'delta': {'text': '集します。'}}}}
+
+
+=== Event 53 ===
+{'event': {'contentBlockStop': {'contentBlockIndex': 0}}}
+
+
+=== Event 54 ===
+{'event': {'subAgentProgress': {'message': '「AWS マスター」がツール「aws___search_documentation」を実行中',
+                                'stage': 'tool_use',
+                                'tool_name': 'aws___search_documentation'}}}
+
+
+=== Event 55 ===
+{'event': {'contentBlockStart': {'contentBlockIndex': 1,
+                                 'start': {'toolUse': {'name': 'aws___search_documentation',
+                                                       'toolUseId': 'tooluse_qQCT9rm3TyCBnlVImXLj1w',
+                                                       'type': 'tool_use'}}}}}
+
+
+=== Event 56 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 1, 'delta': {'toolUse': {'input': ''}}}}}
+
+
+=== Event 57 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 1,
+                                 'delta': {'toolUse': {'input': '{"search_'}}}}}
+
+
+=== Event 58 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 1,
+                                 'delta': {'toolUse': {'input': 'phrase": "A'}}}}}
+
+
+=== Event 59 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 1, 'delta': {'toolUse': {'input': 'mazon'}}}}}
+
+
+=== Event 60 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 1,
+                                 'delta': {'toolUse': {'input': ' S3 overv'}}}}}
+
+
+=== Event 61 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 1,
+                                 'delta': {'toolUse': {'input': 'iew featur'}}}}}
+
+
+=== Event 62 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 1, 'delta': {'toolUse': {'input': 'es '}}}}}
+
+
+=== Event 63 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 1,
+                                 'delta': {'toolUse': {'input': 'use cases'}}}}}
+
+
+=== Event 64 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 1, 'delta': {'toolUse': {'input': '"'}}}}}
+
+
+=== Event 65 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 1,
+                                 'delta': {'toolUse': {'input': ', "topics":'}}}}}
+
+
+=== Event 66 ===
+{'event': {'contentBlockDelta': {'contentBlockIndex': 1,
+                                 'delta': {'toolUse': {'input': ' ["general"]}'}}}}}
+
+
+=== Event 67 ===
+{'event': {'contentBlockStop': {'contentBlockIndex': 1}}}
+
+
+=== Event 68 ===
+{'event': {'messageStop': {'stopReason': 'tool_use'}}}
+
+
+=== Event 69 ===
+{'event': {'metadata': {'metrics': {'latencyMs': 3965},
+                        'usage': {'inputTokens': 5139, 'outputTokens': 144, 'totalTokens': 5283}}}}
+
+
