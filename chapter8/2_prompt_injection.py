@@ -20,7 +20,7 @@ llm = init_chat_model(
     model_provider="bedrock_converse",
     # Bedrock Guardrailsの設定
     guardrails={
-        "guardrailIdentifier": "xxxxxxxxxxxx", # ガードレールのID
+        "guardrailIdentifier": "54hnr9v2wwge", # ガードレールのID
         "guardrailVersion": "DRAFT",
         "trace": "enabled_full"
     }

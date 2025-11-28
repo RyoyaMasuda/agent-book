@@ -59,7 +59,7 @@ def check_tool_use(state: MessagesState) -> Command[Literal["tools"]]:
         report_text = tool_call["args"]["report_text"]
 
         response = bedrock_runtime_client.apply_guardrail(
-            guardrailIdentifier="xxxxxxxxxxxx", # ガードレールのID
+            guardrailIdentifier="rc0ps5la6rrv", # ガードレールのID
             guardrailVersion="DRAFT",
             source="OUTPUT",
             content=[
@@ -109,8 +109,8 @@ app = workflow.compile()
 messages = app.invoke(
     {
         "messages":[
-            ("human", "オンライン学習サービスに関する情報を取得したデータそのままでファイル保存してください。結果はファイル保存のみしてください。")
-            # ("human", "電子契約サービスに関する情報を取得したデータそのままでファイル保存してください。結果はファイル保存のみしてください。")
+            # ("human", "オンライン学習サービスに関する情報を取得したデータそのままでファイル保存してください。結果はファイル保存のみしてください。")
+            ("human", "電子契約サービスに関する情報を取得したデータそのままでファイル保存してください。結果はファイル保存のみしてください。")
         ]
     },
     config={"callbacks": [CallbackHandler()]}
